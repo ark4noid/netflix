@@ -1,0 +1,106 @@
+package bbdd;
+ 
+import java.io.FileReader;
+import java.util.ArrayList;
+ 
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( final String[] args) {
+        System.out.println("Bienvenido a PireitFlix!");
+    }
+}
+ 
+interface IReproducible {
+    public void iniciar();
+ 
+    public void pausar();
+ 
+    public void adelantar();
+ 
+    public void retroceder();
+}
+ 
+abstract class Contenido {
+    String titulo;
+    String descripcion;
+    String fecha;
+    String director;
+ 
+    public Contenido(final String titulo, final String descripcion, final String fecha, final String director) {
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.fecha = fecha;
+        this.director = director;
+    }
+}
+ 
+class Pelicula extends Contenido implements IReproducible {
+    public Pelicula(final String titulo, final String descripcion, final String fecha, final String director) {
+        super(titulo, descripcion, fecha, director);
+    }
+    @Override
+    public void pausar() {
+        System.out.println( "Pausando pelicula" );
+    }
+ 
+    @Override
+    public void iniciar() {
+        System.out.println( "Iniciando pelicula" );
+    }
+ 
+    @Override
+    public void adelantar() {
+        System.out.println( "Adelantando pelicula" );
+    }
+ 
+    @Override
+    public void retroceder() {
+        System.out.println( "Retrocediendo pelicula" );
+       
+ 
+    }
+ 
+}
+class Capitulo implements IReproducible{
+ 
+    @Override
+    public void iniciar() {
+        System.out.println("Iniciar capitulo")
+ 
+    }
+ 
+    @Override
+    public void pausar() {
+        System.out.println("Pausar capitulo")
+ 
+    }
+ 
+    @Override
+    public void adelantar() {
+        System.out.println("Adelantar capitulo")
+ 
+    }
+ 
+    @Override
+    public void retroceder() {
+        System.out.println("Retroceder capitulo")
+ 
+    }
+ 
+ 
+}
+ 
+class Serie extends Contenido {
+ 
+    private ArrayList<Capitulo> capitulos = new ArrayList<Capitulo>();
+    public Serie(final String titulo, final String descripcion, final String fecha, final String director) {
+        super (titulo, descripcion, fecha, director);
+    }
+}
+ 
+ 
+
